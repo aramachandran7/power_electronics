@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 from numpy import arange
 # parse logfile
 
-f = open('./logfiles/log20W.txt', 'r')
+f = open('./logfiles/log15W.txt', 'r')
 Lines = f.readlines()
 Lines = Lines
 top = []
