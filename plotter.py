@@ -2,16 +2,12 @@ import matplotlib.pyplot as plt
 from numpy import arange
 # parse logfile
 
-f = open('./logfiles/log15W.txt', 'r')
+f = open('./logfiles/log20W.txt', 'r')
 Lines = f.readlines()
 Lines = Lines
 top = []
 btm = []
 
-print(Lines[0].split())
-print(Lines[1].split())
-print(float(Lines[2].split()[0][12:-1]))
-print(float(Lines[2].split()[1][9:-1]))
 for line in Lines:
     sp = line.split()
     if len(sp)> 1:
@@ -19,10 +15,12 @@ for line in Lines:
         top.append(float(sp[1][9:-1]))
 
 time = arange(0.0, float(len(top))/2, .5)
-print(len(time), len(top), len(btm))
+time /= 60
 
-plt.plot(time, btm, time, top)
+plt.plot(time, btm, label = 'Thermistor on Heatsink')
+plt.plot(time, top, label = 'Thermistor on Power Resistor')
 plt.ylabel('temperature, degrees C')
-plt.xlabel('time, seconds')
-
+plt.xlabel('time, minutes')
+plt.title('20W dissipated over resistor over 30 minutes')
+plt.legend(loc='lower right')
 plt.show()
