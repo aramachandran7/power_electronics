@@ -20,12 +20,12 @@ df_list = [
 ]
 
 title_list = [
-    '4V ', 
-    '4V (zoom)',
-    '7V ',
-    '7V (zoom)',
+    '4V', 
+    '4V_zoom',
+    '7V',
+    '7V_zoom',
     '9V' ,
-    '9V (zoom)',
+    '9V_zoom',
 ]
 for i,df in enumerate(df_list):
 
@@ -51,6 +51,7 @@ for i,df in enumerate(df_list):
     plt.title('Voltage across shunt resistor as a function of time, output voltage = ' + title_list[i])
     plt.xlabel('Time, (seconds)')
     plt.ylabel('Voltage across shunt resistor, (volts)')
+    plt.savefig(f'./saved_flyback_figs/Vsh_{title_list[i]}.png')
 
     # plot CH2
     df.plot(x='X',y='CH2')
@@ -58,6 +59,8 @@ for i,df in enumerate(df_list):
     plt.title('NMOS Drain Voltage as a function of time, output  voltage = ' + title_list[i])
     plt.xlabel('Time, (seconds)')
     plt.ylabel('NMOS Drain Voltage (volts)')
+    plt.savefig('foo.png')
+    plt.savefig(f'./saved_flyback_figs/Vd_{title_list[i]}.png')
 
     # try: # channel 3
     df.plot(x='X',y='CH3')
@@ -65,6 +68,7 @@ for i,df in enumerate(df_list):
     plt.title('Output Voltage as a function of time, output voltage RMS = ' + title_list[i])
     plt.xlabel('Time, (seconds)')
     plt.ylabel('Output Voltage (volts)')
+    plt.savefig(f'./saved_flyback_figs/Vin_{title_list[i]}.png')
     # except: 
     #     print(title_list[i] + ' does not have output voltage logged')
 
@@ -74,6 +78,7 @@ for i,df in enumerate(df_list):
     plt.title('Input Voltage as a function of time, output voltage RMS = ' + title_list[i])
     plt.xlabel('Time, (seconds)')
     plt.ylabel('Input Voltage (volts)')
+    plt.savefig(f'./saved_flyback_figs/Vin_{title_list[i]}.png')
     # except: 
     #     print(title_list[i] + ' does not have input voltage logged')
     
