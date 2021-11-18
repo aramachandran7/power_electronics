@@ -3,7 +3,8 @@ import matplotlib.animation as animation
 from matplotlib import style
 import serial
 
-ser = serial.Serial(port='/dev/ttyACM0', baudrate=115200, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE, bytesize=serial.EIGHTBITS, timeout=0)
+# port='/dev/ttyACM0'
+ser = serial.Serial(port='COM13', baudrate=115200, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE, bytesize=serial.EIGHTBITS, timeout=0)
 line = []
 style.use('ggplot')
 
