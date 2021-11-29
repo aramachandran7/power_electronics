@@ -30,14 +30,14 @@ for i,df in enumerate(df_list):
     # plot CH2
     df.plot(x='X',y='CH2')
     plt.legend(loc='best')
-    plt.title('Voltage across shunt resistor as a function of time, input voltage = ' + title_list[i])
+    plt.title('Voltage across shunt resistor as a function of time, output voltage = ' + title_list[i])
     plt.xlabel('Time, (seconds)')
     plt.ylabel('Voltage across shunt resistor, (volts)')
 
     # plot CH1
     df.plot(x='X',y='CH1')
     plt.legend(loc='best')
-    plt.title('NMOS Drain Voltage as a function of time, input voltage = ' + title_list[i])
+    plt.title('NMOS Drain Voltage as a function of time, output  voltage = ' + title_list[i])
     plt.xlabel('Time, (seconds)')
     plt.ylabel('NMOS Drain Voltage (volts)')
 
