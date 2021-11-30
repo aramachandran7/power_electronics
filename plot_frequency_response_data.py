@@ -68,24 +68,25 @@ for i,df in enumerate(df_list):
     df['Channel 2 Phase (*)'] = df['Channel 2 Phase (*)'].astype(float)
 
 # CH1 Magnitude 
-plt.plot(
-    df_1_5['Frequency (Hz)'],  df_1_5['Channel 1 Magnitude (dB)'], 
-    df_1_75['Frequency (Hz)'], df_1_75['Channel 1 Magnitude (dB)'], 
-    df_1_95['Frequency (Hz)'], df_1_95['Channel 1 Magnitude (dB)'], 
-    df_2_25['Frequency (Hz)'], df_2_25['Channel 1 Magnitude (dB)'], 
+# plt.plot(
+#     df_1_5['Frequency (Hz)'],  df_1_5['Channel 1 Magnitude (dB)'], 
+#     df_1_75['Frequency (Hz)'], df_1_75['Channel 1 Magnitude (dB)'], 
+#     df_1_95['Frequency (Hz)'], df_1_95['Channel 1 Magnitude (dB)'], 
+#     df_2_25['Frequency (Hz)'], df_2_25['Channel 1 Magnitude (dB)'], 
 
-)
-plt.legend(
-    ['1.5 V',
-    '1.75 V',
-    '1.95 V',
-    '2.25 V',],    
-    loc='best')
-plt.title('Channel 1 Magnitude')
-plt.xlabel('Frequency (Hz)')
-plt.ylabel('Magnitude (dB)')
-plt.savefig(f'./figs_lb9/CH1Mag.png')
-plt.show()
+# )
+# plt.legend(
+#     ['1.5 V',
+#     '1.75 V',
+#     '1.95 V',
+#     '2.25 V',],    
+#     loc='best')
+# plt.title('Channel 1 Magnitude')
+# plt.xscale("log")
+# plt.xlabel('Frequency (Hz)')
+# plt.ylabel('Magnitude (dB)')
+# plt.savefig(f'./figs_lb9/CH1Mag.png')
+# plt.show()
 
 
 # df.plot(x='Frequency (Hz)',y='Channel 1 Magnitude (dB)')
@@ -96,6 +97,7 @@ plt.show()
 # plt.savefig(f'./figs_lb9/CH1Mag_{title_list[i]}.png')
 
 # # CH2 Magnitude 
+plt.figure("CH2 Mags")
 plt.plot(
     df_1_5['Frequency (Hz)'],  df_1_5['Channel 2 Magnitude (dB)'], 
     df_1_75['Frequency (Hz)'], df_1_75['Channel 2 Magnitude (dB)'], 
@@ -109,12 +111,12 @@ plt.legend(
     '1.95 V',
     '2.25 V',],    
     loc='best')
+plt.xscale("log")
 plt.title('Channel 2 Magnitude')
+plt.grid(True, which="both")
 plt.xlabel('Frequency (Hz)')
 plt.ylabel('Magnitude (dB)')
 plt.savefig(f'./figs_lb9/CH2Mag.png')
-plt.show()
-
 
 # df.plot(x='Frequency (Hz)',y='Channel 2 Magnitude (dB)')
 # plt.legend(loc='best')
@@ -123,7 +125,7 @@ plt.show()
 # plt.ylabel('Magnitude (dB)')
 # plt.savefig(f'./figs_lb9/CH1Mag_{title_list[i]}.png')
 
-
+plt.figure("CH2 Phases")
 # # CH2 Phase  
 plt.plot(
     df_1_5['Frequency (Hz)'],   df_1_5['Channel 2 Phase (*)'], 
@@ -139,6 +141,8 @@ plt.legend(
     '2.25 V',],    
     loc='best')
 plt.title('Channel 2 Phase')
+plt.xscale("log")
+plt.grid(True, which="both")
 plt.xlabel('Frequency (Hz)')
 plt.ylabel('Phase (degrees)')
 plt.savefig(f'./figs_lb9/CH2Phase.png')
