@@ -79,14 +79,19 @@ df_step['Time (s)'] = df_step['Time (s)'].astype(float)
 df_step['Channel 1 (V)'] = df_step['Channel 1 (V)'].astype(float)
 df_step['Channel 2 (V)'] = df_step['Channel 2 (V)'].astype(float)
 
+df_step['Channel 2 roll'] = df_step['Channel 2 (V)'].rolling(window=78).mean()
+
+
 plt.figure("step response")
 plt.plot(
     df_step['Time (s)'],  df_step['Channel 2 (V)'], 
     df_step['Time (s)'], df_step['Channel 1 (V)'], 
+    df_step['Time (s)'], df_step['Channel 2 roll'], 
 )
 plt.legend(
     ['Measured Output',
-    'Measured Input',],    
+    'Measured Input',
+    'Measured Output Roll',],    
     loc='best')
 # plt.xscale("log")
 plt.title('Step Response')
